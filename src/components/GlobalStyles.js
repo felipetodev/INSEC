@@ -15,6 +15,10 @@ const GlobalStyles = createGlobalStyle`
         &::-webkit-scrollbar-thumb {
             background-color: darkgray;
         }
+
+        &::-webkit-scrollbar-track {
+            background: white;
+        }
     }
 
     body {
@@ -30,13 +34,13 @@ const GlobalStyles = createGlobalStyle`
     }
 
     h3 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         color: #333;
-        padding: 1.5rem;
+        padding: 1.5rem 0;
     }
 
     p {
-        font-size: 1rem;
+        font-size: 0.8rem;
         line-height: 200%;
         color: #696969;
     }
@@ -44,6 +48,11 @@ const GlobalStyles = createGlobalStyle`
     a {
         text-decoration: none;
         color: #333;
+    }
+
+    input {
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
     }
 `
 

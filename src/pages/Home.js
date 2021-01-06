@@ -4,8 +4,13 @@ import { loadGames } from '../actions/gamesAction'
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import Game from '../components/Game'
+import GameDetail from '../components/GameDetail'
+import { useLocation } from 'react-router-dom'
 
 const Home = () => {
+    const location = useLocation()
+    const pathId = location.pathname.split('/')[2]
+
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -13,10 +18,29 @@ const Home = () => {
     }, [dispatch])
 
     //obtener data de vuelta
-    const { popular, newGames, upcoming } = useSelector((state) => state.games)
+    const { popular, newGames, upcoming, searched } = useSelector((state) => state.games)
 
     return (
         <GameList>
+            {pathId && <GameDetail />}
+            {searched && (
+                <div>
+                    <h2>Searched Games</h2>
+                    <Games>
+                        {
+                            searched.map(game => (
+                                <Game
+                                    key={game.id}
+                                    id={game.id}
+                                    name={game.name}
+                                    released={game.released}
+                                    image={game.background_image}
+                                />
+                            ))
+                        }
+                    </Games>
+                </div>
+            )}
             <h2>Upcoming Games</h2>
                 <Games>
                     {
