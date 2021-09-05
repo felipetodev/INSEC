@@ -1,4 +1,5 @@
-const base_url = `https://api.rawg.io/api/games?key=${process.env.REACT_APP_KEY}`
+const { REACT_APP_KEY = '' } = process.env
+const base_url = `https://api.rawg.io/api/games?key=${REACT_APP_KEY}`
 const new_base_url = `https://api.rawg.io/api/games`
 
 //Fecha
@@ -39,10 +40,10 @@ export const upcomingGamesURL = () => `${base_url}${upcoming_games}`
 export const newGamesURL = () => `${base_url}${new_games}`
 
 //game-details
-export const gameDetailsURL = (game_id) => `${new_base_url}/${game_id}?key=${process.env.REACT_APP_KEY}`
+export const gameDetailsURL = (game_id) => `${new_base_url}/${game_id}?key=${REACT_APP_KEY}`
 
 //game-screenshots
-export const gameScreenshotURL = (game_id) => `${new_base_url}/${game_id}/screenshots?key=${process.env.REACT_APP_KEY}`
+export const gameScreenshotURL = (game_id) => `${new_base_url}/${game_id}/screenshots?key=${REACT_APP_KEY}`
 
 //searched-game
 export const searchGameURL = (game_name) => `${base_url}&search=${game_name}&page_size=9`
