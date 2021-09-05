@@ -12,8 +12,8 @@ export const loadDetail = (id) => async (dispatch) => {
     dispatch({
         type: "GET_DETAIL",
         payload: {
-            game: detailData.data,
-            screen: screenShotData.data,
+            game: detailData?.data,
+            screen: screenShotData?.data,
         }
     })
 }
